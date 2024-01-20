@@ -1,0 +1,6 @@
+{
+  "dart.completeFunctionCalls": false,
+  "dart.enableSnippets": false,
+  "dart.insertArgumentPlaceholders": false,
+  "dart.lspSnippetTextEdits": false
+}
