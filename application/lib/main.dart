@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
+import './resposta.dart';
 
 main() {
   runApp(PerguntaApp());
@@ -8,7 +9,7 @@ main() {
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
 
-  void _responder() {
+  void responder() {
     setState(() {
       _perguntaSelecionada++;
     });
@@ -21,6 +22,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
       'Qual é o seu animal favorito?',
     ];
 
+    final List<String> respostas = ['Resposta 1', 'Resposta 2', 'Resposta 3'];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -28,17 +31,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(children: <Widget>[
           Questao(perguntas[_perguntaSelecionada]),
-          ElevatedButton(
-            onPressed: _responder,
-            child: Text('Resposta 1'),
-          ),
-          ElevatedButton(
-            onPressed: _responder,
-            child: Text('Resposta 2'),
-          ),
-          ElevatedButton(
-            onPressed: _responder,
-            child: Text('Resposta 3'),
+          Column(
+            children: respostas.map((t) => Resposta(t, responder)).toList(),
           ),
         ]),
       ),
